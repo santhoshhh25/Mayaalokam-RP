@@ -110,4 +110,4 @@ This website has been tested on:
 
 ## 👨‍💻 Credits
 
-Website developed and optimized by [Your Name]
+Website developed and optimized by Santhosh Reddy
