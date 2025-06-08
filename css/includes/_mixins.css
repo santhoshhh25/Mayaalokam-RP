@@ -1,0 +1,113 @@
+/* CSS Custom properties for responsive breakpoints */
+
+:root {
+  --mobile-width: 767px;
+  --tablet-width: 1023px;
+  --desktop-width: 1024px;
+  
+  --mobile-padding: 1rem;
+  --tablet-padding: 2rem;
+  --desktop-padding: 3rem;
+}
+
+/* Utility classes for responsive behaviors */
+
+/* Hide on mobile */
+@media (max-width: 767px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+
+/* Hide on tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hide-on-tablet {
+    display: none !important;
+  }
+}
+
+/* Hide on desktop */
+@media (min-width: 1024px) {
+  .hide-on-desktop {
+    display: none !important;
+  }
+}
+
+/* Only show on mobile */
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .mobile-only {
+    display: block;
+  }
+}
+
+/* Only show on tablet */
+.tablet-only {
+  display: none;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tablet-only {
+    display: block;
+  }
+}
+
+/* Only show on desktop */
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .desktop-only {
+    display: block;
+  }
+}
+
+/* Flex column on mobile */
+@media (max-width: 767px) {
+  .mobile-column {
+    flex-direction: column !important;
+  }
+}
+
+/* Stack items on mobile */
+@media (max-width: 767px) {
+  .mobile-stack > * {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .mobile-stack > *:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* Center text on mobile */
+@media (max-width: 767px) {
+  .mobile-center {
+    text-align: center !important;
+  }
+}
+
+/* Add responsive spacing classes */
+.mobile-mt-0 { margin-top: 0 !important; }
+.mobile-mb-0 { margin-bottom: 0 !important; }
+.mobile-pt-0 { padding-top: 0 !important; }
+.mobile-pb-0 { padding-bottom: 0 !important; }
+
+@media (max-width: 767px) {
+  .mobile-mt-1 { margin-top: 1rem !important; }
+  .mobile-mb-1 { margin-bottom: 1rem !important; }
+  .mobile-pt-1 { padding-top: 1rem !important; }
+  .mobile-pb-1 { padding-bottom: 1rem !important; }
+  
+  .mobile-mt-2 { margin-top: 2rem !important; }
+  .mobile-mb-2 { margin-bottom: 2rem !important; }
+  .mobile-pt-2 { padding-top: 2rem !important; }
+  .mobile-pb-2 { padding-bottom: 2rem !important; }
+}

@@ -1,0 +1,73 @@
+/* Footer developer credits fix */
+
+/* General footer style adjustments */
+.footer-bottom {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* Developer credit styling */
+.dev-signature {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: 8px;
+  line-height: 1.5;
+  position: relative;
+}
+
+.dev-signature a {
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+}
+
+/* Single underline on hover - only under the name */
+.dev-signature a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+  opacity: 0;
+}
+
+.dev-signature a:hover::after {
+  width: 100%;
+  opacity: 1;
+}
+
+/* Remove default underline from link */
+.dev-signature a:hover {
+  text-decoration: none;
+}
+
+.dev-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 1;
+  margin-right: 2px;
+}
+
+/* Ensure mobile view gets proper format */
+@media (max-width: 480px) {
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

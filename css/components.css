@@ -1,0 +1,117 @@
+/* Component-specific responsive styles */
+
+/* Responsive buttons */
+@media (max-width: 767px) {
+  /* Make buttons full width on mobile */
+  .cta-btn, .apply-btn, .discord-button-jp, .visit-studio-btn-sms {
+    width: 100%;
+    max-width: none;
+    justify-content: center;
+  }
+  
+  /* Adjust button padding and font size */
+  .cta-btn, .apply-btn, .discord-button-jp {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Stack buttons in columns */
+  .hero-buttons, .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+}
+
+/* Responsive navigation and header */
+@media (max-width: 767px) {
+  /* Sticky header for better mobile UX */
+  header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  /* Adjusted header padding */
+  .header-inner {
+    padding: 0.8rem 1rem;
+  }
+  
+  /* Mobile menu animation */
+  .nav-menu {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  
+  .nav-menu.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive card layouts */
+@media (max-width: 767px) {
+  /* Adjust card padding */
+  .card-content {
+    padding: 1.2rem;
+  }
+  
+  /* Ensure all cards have consistent height */
+  .feature-container {
+    height: auto;
+    min-height: 320px;
+  }
+}
+
+/* Responsive typography */
+@media (max-width: 767px) {
+  /* Reduce heading sizes */
+  .heading-large {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+  }
+  
+  .heading-small {
+    font-size: clamp(1rem, 4vw, 1.8rem);
+  }
+  
+  /* Adjust paragraph text */
+  p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
+
+/* Footer responsiveness */
+@media (max-width: 767px) {
+  /* Stack footer columns */
+  .footer-top {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  /* Center footer content */
+  .footer-info, .footer-links {
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* Center footer logo */
+  .footer-logo {
+    margin: 0 auto 1rem;
+    text-align: center;
+  }
+  
+  /* Center social icons */
+  .footer-social {
+    justify-content: center;
+  }
+  
+  /* Center navigation titles */
+  .footer-links h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,775 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Server Rules - MayaaLokam Roleplay</title>
+<meta name="description" content="Read the comprehensive server rules for MayaaLokam Roleplay. Understand our community guidelines and roleplay standards.">
+<!-- Fonts & Icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&amp;family=Roboto:wght@300;400;500;700&amp;display=swap">
+<!-- Custom Styles --><link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/transitions.css">
+<link rel="stylesheet" href="css/includes/_mixins.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/global-responsive.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/hamburger.css">
+<link rel="stylesheet" href="css/footer-fix.css">
+<style>
+        /* Additional page-specific styles */
+        .rules-section {
+            padding: 150px 0 80px;
+            position: relative;
+            background: linear-gradient(to right, rgb(55, 65, 81), rgb(17, 24, 39), rgb(0, 0, 0));
+        }
+        
+        .rules-container {
+            position: relative;
+            z-index: 2;
+            width: 100%; /* Changed for full-width box */
+            margin: 0; /* Removed auto margin for full-width box */
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flow-root; /* Clearfix for floated elements */
+        }
+        
+        .rules-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .rules-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .rules-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .rules-sidebar {
+            position: sticky;
+            top: 120px;
+            width: 200px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            max-height: calc(100vh - 200px);
+            overflow-y: auto;
+            z-index: 10;
+            float: left;
+            margin-right: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .rules-sidebar h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        .rules-sidebar ul {
+            list-style: none;
+        }
+        
+        .rules-sidebar li {
+            margin-bottom: 8px;
+        }
+        
+        .rules-sidebar a {
+            color: var(--text-muted);
+            font-size: 12px;
+            transition: var(--transition);
+            display: block;
+            padding: 5px 0;
+        }
+        
+        .rules-sidebar a:hover {
+            color: var(--accent-color);
+        }
+        
+        .rules-content {
+            overflow: hidden;
+        }
+        
+        .rule-section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .rule-section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+        }
+        
+        .rule-section h2::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+        
+        .collapsible h2 {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .collapsible h2::after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .collapsible.active h2::after {
+            transform: rotate(180deg);
+        }
+        
+        .rule-section h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            color: var(--accent-color);
+            margin: 20px 0 10px 0;
+        }
+        
+        .rule-section p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .rule-section ul {
+            list-style: none;
+            margin-left: 20px;
+        }
+        
+        .rule-section li {
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .rule-section li::before {
+            content: '▶';
+            color: var(--accent-color);
+            position: absolute;
+            left: -15px;
+            font-size: 10px;
+        }
+        
+        .warning-box {
+            background: rgba(255, 69, 0, 0.1);
+            border: 1px solid rgba(255, 69, 0, 0.3);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .warning-box p {
+            color: #ff6b6b;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* Collapsible content styles */
+        .rule-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .collapsible.active .rule-content {
+            max-height: 5000px; /* Large value to accommodate all content */
+        }
+        
+        @media (max-width: 1200px) {
+            .rules-sidebar {
+                display: none;
+            }
+            
+            .rules-content {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .rules-container {
+                padding: 30px 20px;
+            }
+            
+            .rules-header h1 {
+                font-size: 28px;
+            }
+            
+            .rule-section {
+                padding: 20px;
+            }
+            
+            .rule-section h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="page-transition">
+    <!-- Loading overlay removed for smoother transitions -->
+    <!-- Header -->
+    <header><div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://public.youware.com/users-website-assets/prod/5a2dce70-d0aa-4d77-bd97-1e6ed4517dee/Picsart-25-05-29-23-13-39-384.png" alt="MayaaLokam Logo"></a>
+                </div>
+                
+                <nav class="nav-menu" id="navMenu"><a href="index.html">Home</a>
+                    <a href="whitelist.html">Whitelist</a>
+                    <a href="rules.html">Rules</a>
+
+                    <a href="duty-tracker.html">Duty Tracker</a>
+                    
+                    <!-- Mobile only buttons -->
+                    <div class="mobile-nav-buttons">
+                        <a href="whitelist.html" class="apply-btn">Apply Now</a>
+                        <a href="membership.html">
+                            <button type="button" class="button mobile-space-btn">
+  <span class="fold"></span>
+  <div class="points_wrapper">
+    <i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i>
+  </div>
+  <span class="inner">
+    <svg class="icon" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" style="width: 1em; height: 1em;"><polyline points="13.18 1.37 13.18 9.64 21.45 9.64 10.82 22.63 10.82 14.36 2.55 14.36 13.18 1.37"></polyline></svg>
+    PRIME
+  </span>
+</button>
+                        </a>
+                    </div>
+                </nav><div class="nav-buttons">
+                    <a href="whitelist.html" class="apply-btn">Apply Now</a>
+                    <a href="membership.html">
+                        <button type="button" class="button">
+  <span class="fold"></span>
+  <div class="points_wrapper">
+    <i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i>
+  </div>
+  <span class="inner">
+    <svg class="icon" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" style="width: 1em; height: 1em;"><polyline points="13.18 1.37 13.18 9.64 21.45 9.64 10.82 22.63 10.82 14.36 2.55 14.36 13.18 1.37"></polyline></svg>
+    PRIME
+  </span>
+</button>
+                    </a>
+                </div>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span class="hamburger-icon"></span>
+                    <i class="fa-solid fa-bars"></i>
+                    <i class="fa-solid fa-times"></i>
+                </button>
+                <div class="nav-overlay" id="navOverlay"></div>
+            </div>
+        </div>
+    </header><!-- Rules Section --><section class="rules-section"><div class="container">
+            <div class="rules-container">
+                <div class="rules-header">
+                    <h1>MayaaLokam Roleplay Rules</h1>
+                    <p>Welcome to MayaaLokam Roleplay! This is a Telugu and English speaking server. By connecting to the MayaaLokam RP Discord and FiveM server, you confirm that you have read and agreed to abide by the following rules.</p>
+                </div>
+                
+                <!-- Sidebar Navigation -->
+                <div class="rules-sidebar">
+                    <h3>Quick Navigation</h3>
+                    <ul>
+<li><a href="#introduction">Introduction</a></li>
+                        <li><a href="#character-rules">Character Rules</a></li>
+                        <li><a href="#roleplay-mechanics">Roleplay Mechanics</a></li>
+                        <li><a href="#behavior-rules">Behavior Rules</a></li>
+                        <li><a href="#combat-rules">Combat Rules</a></li>
+                        <li><a href="#life-death-rules">Life &amp; Death Rules</a></li>
+                        <li><a href="#zones-locations">Zones &amp; Locations</a></li>
+                        <li><a href="#criminal-activities">Criminal Activities</a></li>
+                        <li><a href="#technical-rules">Technical Rules</a></li>
+                        <li><a href="#additional-rules">Additional Rules</a></li>
+                    </ul>
+</div>
+                
+                <div class="rules-content">
+                    <!-- Introduction -->
+                    <div class="rule-section" id="introduction">
+                        <h2>Introduction</h2>
+                        <p>Don't have attitude, ego, or selfishness. If you do, you won't be fit for MayaaLokam.</p>
+                        
+                        <p>If a player or streamer is given special business opportunities, outfits, businesses without an auction, or a special character, it does not mean they are receiving special privileges. They simply opened a ticket and requested it from the admin. If you want, you can also ask the admin by opening a ticket or sending them a DM.</p>
+                        
+                        <p>If you see any of the below rules broken, report to a member of staff or open a report ticket on our Discord. Collect evidence (e.g. screenshots, clips) if possible. Player IDs will display above characters. Including player IDs in a report is vital to help staff identify people involved.</p>
+                        
+                        <div class="warning-box">
+                            <p><strong>Note - Witnessing Rules Breaks:</strong> If you witness a severe rule being broken (e.g. hacking, RDM, harassment), contact staff immediately either through doing /report to message online staff, or submit a ticket in our Discord.</p>
+                        </div>
+                        
+                        <p>If you feel as though someone you are roleplaying with may have broken a rule or you are uncertain, remain in character and continue the roleplay as best you can, or excuse yourself in character if you do not wish to continue. Collect any evidence and then submit a ticket in our Discord.</p>
+                        
+                        <p>You can always reach out to a player directly to have a healthy conversation about what happened if you don't want to escalate a situation to a player report.</p>
+                        
+                        <p>We aim to educate rather than punish players if mistakes are made, and so operate on an accumulative points system that allows breathing room for players to better their RP. However, there are certain rules that will result in immediate or even permanent ban.</p>
+                    </div>
+
+                    <!-- Character Rules -->
+                    <div class="rule-section collapsible" id="character-rules">
+                        <h2>1 - Play Realistic Characters</h2>
+                        <div class="rule-content">
+                            <p>MayaaLokam is a serious roleplay server. This rule is in place to encourage players to maintain a thorough sense of realistic actions, whether it be through slow-burn plots or action packed scenes, regular civilian life or otherwise. Guidelines of this rule are as follows:</p>
+                            
+                            <ul>
+<li>Characters should suit a real, modern day setting, and must be over the age of 18.</li>
+                                <li>If you wish to play a character who thinks they are anything other than a regular human you can, but understand other characters may have negative reactions to this.</li>
+                                <li>Develop thoroughly thought out characters with reasons for their motives.</li>
+                                <li>A character that attacks police just because they are a criminal is poorly developed.</li>
+                                <li>MayaaLokam RP isn't a "cops and robbers" server, players are encouraged to have characters that experience life beyond just being a criminal, party-goer, or emergency service personnel.</li>
+                                <li>Create characters with depth, skills, faults and emotions. Actively seek roleplay, be creative, and make your character have a unique story you and others can enjoy.</li>
+                                <li>Do not create "clone" characters that consistently share identical appearance, features or repeat the same actions as your other characters.</li>
+                                <li>Do not create characters that are imitating real life public/pop-culture figures or community members. Characters can have the same names as public/pop-culture figures, but not roleplay as if they are the real life counterparts.</li>
+                                <li>Value the life of yourself and of others.</li>
+                                <li>Your character doesn't know if they will be revived or put in prison for the rest of their life, so act like it. Question your actions.</li>
+                                <li>However, players shouldn't "ruleplay" NVL and always demand full compliance from someone by threatening them - some characters are brave, or dumb, or both.</li>
+                            </ul>
+</div>
+                    </div>
+
+                    <!-- Roleplay Mechanics -->
+                    <div class="rule-section collapsible" id="roleplay-mechanics">
+                        <h2>2 - Prioritize Roleplay Over Game Mechanics</h2>
+                        <div class="rule-content">
+                            <p>Enhance roleplay through dialogue and creativity, rather than relying on server features to do it all for you. This rule is in place to ensure our players provide a quality roleplay experience for any roleplayers involved above all else. Examples of breaking this rule could be, but are not limited to:</p>
+                            
+                            <ul>
+<li>Providing no medical role-play when injured.</li>
+                                <li>Medical RP should be done through emoting your injuries through /me's or describing pain/injuries verbally.</li>
+                                <li>Make use of /me, emotes and scenes to enhance your RP.</li>
+                                <li>Players are encouraged to provide roleplay through voice, /me's or emotes for game mechanics that provide no visual, auditory or text roleplay automatically (e.g. towing, car repairs, etc.).</li>
+                                <li>Ensure proper use to /me, emotes and scenes.</li>
+                                <li>/me shouldn't be used to let people read minds and conveying thoughts or feelings, and instead should help describe details of how your character presents to others. E.g.: "/me frowns, looking angrily at Jake" instead of "/me feels angry at Jake".</li>
+                                <li>Do not rely on the combination of emotes or scenes that would not make physical sense (e.g. make your character float or twist body parts the wrong way).</li>
+                            </ul>
+<h3>3 - No Fail Roleplay</h3>
+                            <p>Fail role-play is the act of playing outside of what is reasonable for a character to do within RP. This rule is in place to prevent unfair advantages, ruining immersion, and to promote high-quality roleplay. Examples of breaking this rule could be, but is not limited to:</p>
+                            
+                            <h3>Examples of potential violations of Fail RP (immersion):</h3>
+                            <ul>
+<li>Using super human strength to pick up and carry a downed player, while running full speed, and shooting your weapon.</li>
+                                <li>Not properly acting out or roleplaying your injuries after a severe vehicle accident.</li>
+                                <li>Jumping from high elevations, hitting the ground, then continuing to run full sprint.</li>
+                                <li>EMS Reviving a player to force confessions or interviews by law enforcement is a violation of this rule.</li>
+                                <li>Using your phone or radio while cuffed or downed.</li>
+                                <li>Changing your clothes outside of a clothing store or your house.</li>
+                                <li>Attempting to force your victims to withdraw money from an ATM, sell their property, or vehicle, bitcoins, open locked doors that otherwise can't be unlocked, LSC, hospitals, etc.</li>
+                                <li>Using emotes in ways not intended. Quickly dropping to the ground in a fire fight, laying down in your car, holding your wrists in front of you to conceal your weapon, or using emotes to hide other emotes run by scripts.</li>
+                                <li>Not relaying accurate information using /me. For Example: If a medic does /me checks over your body, you have to reply /me has multiple gunshot wounds (GSWs) if you were shot for example.</li>
+                                <li>Tazing, beanbag shotgun or tackling to stun a player then shooting them or beating them while on the ground before they can get back to respond to your RP.</li>
+                                <li>Talking / Speaking while downed. Only speak/talk (no radio) to RP injuries.</li>
+                                <li>Not RPing your injuries when leaving the Hospital (example: Running out of the hospital or fighting as soon as leaving the hospital should not be possible if you have just left the MD).</li>
+                                <li>Carrying another player while sitting in a car just to get another person in the car. Players being carried should need to be carried. Players who can sit in a car under their own strength should do so.</li>
+                                <li>Failure to stay in-character, at all times, during roleplay. This includes failure to use in-character terminology (e.g. referring to the server as the "city", or your headset as "ears" or "hearing aid", etc), or responding to something said in OOC chat.</li>
+                            </ul>
+</div>
+                    </div>
+
+                    <!-- Behavior Rules -->
+                    <div class="rule-section collapsible" id="behavior-rules">
+                        <h2>4 - No Power Gaming</h2>
+                        <div class="rule-content">
+                            <p>Power-Gaming is the act of fabricating an advantage that couldn't be reasonably obtained in roleplay or abusing a known mechanic in a harmful manner. This rule is in place to prevent unfair advantage. Examples of breaking this rule could be, but are not limited to: breaking this rule may get a inventory wipe</p>
+                            
+                            <ul>
+<li>Taking advantage of game limitations. E.g. taking advantage of another player's game crashing, stealing items that have been put down but are RPed as being handed to a certain character, or abuse of game mechanics such as using a tow truck to steal cars in order to bypass risk of police alerts.</li>
+                                <li>Eg. Using emotes and getting out of RP.</li>
+                                <li>/me's that are unrealistic or force things on to other people's characters. E.g. "/me does 12 backflips" or "/me punches (another character) and knocks them unconscious".</li>
+                                <li>Emoting completely unrealistic injuries for roleplay advantage. E.g. Having barely any injuries after a lot of harm to avoid medical RP (e.g. a 30ft fall resulting in a bruised toe), or forcing impossibly severe injuries on your character to force consequences on others (e.g. permanently killing your character after getting punched in the leg by a misclick). Continuously neglecting to acknowledge severe injury or threat and rushing medical RP to return to an active RP scene after severe injury is also power gaming/fail RP.</li>
+                                <li>NOTE: If your character receives 3 consecutive 51-50s (Mental Health Hold), in any form, your character will be transitioned to a lifer as they will then be classified as a public danger.</li>
+                                <li>Misusing police powers like selling/using seized armory items, evidence items, vehicles for personal use.</li>
+                                <li>If any of the player caught OOC/IC of breaking above rules they will be fired from the department and get blacklisted from the whitelist jobs Note: No strike warnings.</li>
+                                <li>Forcing players to unlock otherwise inaccessible locations or funds for the purpose of robbery. E.g. Threatening a player at gunpoint to force them to unlock their property for you to enter for the purpose of stealing from them, or threatening a player at gunpoint to force them to withdraw/transfer money for you at a bank or ATM.</li>
+                            </ul>
+<h3>5 - No Meta Gaming</h3>
+                            <p>Meta-gaming is the use of information obtained out of character, that in character should not be known, and applying it in roleplay. This rule is in place to prevent players from gaining an unfair advantage. Examples of breaking this rule could be, but are not limited to:</p>
+                            
+                            <ul>
+<li>Applying information learned outside of the server. Applying information from anywhere other than specified event/advertisement channels in the MayaaLokam RP Discord, or using something other than the in-game radio or phone to communicate with other characters at a distance is also not allowed.</li>
+                                <li>The exchange of information or assets between two of your own characters without the presence of a third party (other player) to relay between them through roleplay.</li>
+                                <li>Stream sniping.</li>
+                                <li>Conflict of interests: In order to prevent risks of meta the following restrictions are in place:</li>
+                                <li>Players are not permitted to perform jury duty for a trial of another player that shares a gang or personal relationship with any of their characters.</li>
+                                <li>Players are not permitted to become criminal informants for LEOs who have any alternate characters that share gang or personal relationships with them.</li>
+                                <li>Players are not permitted to have their LEO character be involved in investigations surrounding gangs that they are a part of on an alternate character.</li>
+                                <li>Players are not permitted to have their LEO character be involved in investigations surrounding characters that share a gang or personal relationships with any of their alternative characters.</li>
+                                <li>Identifying Players via Voice Recognition/Player ID's: It is prohibited to identify someone solely off of their voice. It's an acquired skill to be able to change one's voice by using accents, and not everyone wants to use a voice changer, limiting them to default to their normal voice.</li>
+                            </ul>
+</div>
+                    </div>
+                    
+                    <!-- Combat Rules -->
+                    <div class="rule-section collapsible" id="combat-rules">
+                        <h2>6 - No Deathmatching</h2>
+                        <div class="rule-content">
+                            <p>Deathmatching is attempting to harm or incapacitate a NPC or player without a clear motive or roleplay. This rule is in place to prevent players from being downed/injured with no reason or roleplay experience provided. Examples of breaking this rule could be, but are not limited to:</p>
+                            
+                            <h3>Random Death Match (RDM)</h3>
+                            <ul>
+<li>Killing a character without any form of prior initiation through role-play (text messages, emails or tweets can be considered initiation if both parties have responded). Harming or incapacitating a character from a distance without roleplay provided to the victim is not allowed.</li>
+                            </ul>
+<h3>Vehicle DeathMatch (VDM)</h3>
+                            <ul>
+<li>Killing a character using a vehicle and leaving the scene without roleplay provided to the victim.</li>
+                            </ul>
+<h3>7 - No Revenge RP</h3>
+                            <p>Excessive revenge is seen as attacking/incapacitating someone who has previously attacked you beyond a single time in retaliation of their initial attack. This rule is in place to prevent harassment. Examples of breaking this rule could be, but are not limited to:</p>
+                            
+                            <ul>
+<li>Repeatedly forcing injury/asset loss on a player that has wronged you to the point of harassment.</li>
+                                <li>Attacking, robbing, or harming property of a character without them giving any retaliation beyond your first act of revenge can be seen as harassment.</li>
+                                <li>If they do retaliate to your revenge, you can then retaliate back and forth as long as you both choose to.</li>
+                                <li>If they do not retaliate to your revenge, consider revenge served and continue the conflict through creative roleplay that doesn't result in the player being incapacitated (downed).</li>
+                                <li>Continuing to enact revenge through targeting other people.</li>
+                                <li>Choosing other characters related to the target to enact revenge on in order to harm the character after they have already been the target of revenge is not permitted.</li>
+                                <li>Taking revenge for being arrested and charged appropriately.</li>
+                                <li>Being caught by police for breaking the law is not a justifiable cause for seeking violent revenge on them, unless the officer caused a player death, exhibited abuse of power, neglect, or other such corruption during the events of your character's arrest.</li>
+                            </ul>
+<h3>12 - No Gunplay Over Roleplay</h3>
+                            <p>As a serious roleplay server, it is essential for our players to not consistently escalate to game violence in order to incapacitate a target and end the roleplay scene. This rule is in place to ensure our players prioritize and prolong creative interactions for any roleplayers involved. Examples of breaking this rule could be, but are not limited to:</p>
+                            
+                            <ul>
+<li>Electing/preferring to exercise violent means without justifiable in-character reason. Justifiable in-character reason must be worth the risk of the repercussions that the violent act may have on the life and/or freedom of characters involved (e.g. becoming violent in response to non-threatening verbal insults or shooting at an LEO over failure to flee a traffic stop is not justified).</li>
+                                <li>Meeting the bare minimum requirements of roleplay engagement/initiation prior to the use of game violence.</li>
+                                <li>Escalating to game violence, rather than continuing dialogue to sufficiently exhaust other roleplay-driven options.</li>
+                                <li>"Loot Boxing" players, prioritizing stealing from a downed player over the necessity for fleeing, ensuring the safety of a scene, roleplaying injuries, or otherwise.</li>
+                            </ul>
+<h3>13 - NVL/Not Valuing Life</h3>
+                            <p>Not valuing your life, or the life of others, when viable threats by weapons or potentially serious harm exist is against the rules.</p>
+                            
+                            <ul>
+<li>Having shootouts near PD falls under this rule.</li>
+                                <li>Antagonizing other community members with no in character reason.</li>
+                                <li>Police not valuing the life of a hostage. Police cannot take a criminal hostage, so there can not be an exchange of hostages in that way.</li>
+                            </ul>
+<h3>18 - Driveby Rules</h3>
+                            <p>Suppress Fire is required in Drive-By also. When you are driving you (in driving seat) firing is not allowed. Co passengers can shoot from vehicles while drive.</p>
+                        </div>
+                    </div>
+
+                    <div class="rule-section collapsible" id="life-death-rules">
+                        <h2>Life &amp; Death Rules</h2>
+                        <div class="rule-content">
+                            <h3>14 - NLR - New Life Rule</h3>
+                            <p>After a player respawns after being downed, players may not remember any events leading up to your character's death. They must roleplay the fact they have no memory of the last 15 min leading up to their character's death.</p>
+                            
+                            <ul>
+<li>Players may not respawn if they're downed in an active roleplay situation.</li>
+                                <li>A player under NLR may not re-engage in the RP situation that caused their death. Even after 30 min, no player may re-enter the RP scenario in which they were downed in and revived via respawn.</li>
+                                <li>You may not respawn if you called for and/or you have been advised at the time that Police or EMS are on the way to your scene. Do not take away RP situations for EMS and LSPD players.</li>
+                            </ul>
+<h3>9 - Combat Logging</h3>
+                            <p>Roleplay logging is the act of intentionally disconnecting from the server during or leading up to an active roleplay scene to avoid an interaction or consequence. Combat-logging is the same but for a combat situation. This rule is in place to prevent players from avoiding roleplay and allow time for others to respond. Examples of breaking this rule could be, but are not limited to:</p>
+                            
+                            <ul>
+<li>Not remaining in the server for at least 10 minutes after a roleplay or combat situation has ended.</li>
+                                <li>Players should allow time to rejoin the roleplay scene if "logging" was unintentional (e.g. game crash).</li>
+                                <li>If players cannot reach the other parties involved, they should use Discord or submit a ticket to allow staff to aid in notifying them if the player's "logging" was unintentional and/or there are delays getting back into the server.</li>
+                                <li>Continuously outright denying roleplay to others.</li>
+                                <li>Continuously abandoning roleplay scenes or completely ignoring interactions without feasible roleplay explanation/motivation and remaining on the server is considered the same as roleplay logging. The only exception to this is if the scene involves sensitive or explicit roleplay.</li>
+                            </ul>
+<h3>10 - No Explicit/Adult Roleplay</h3>
+                            <p>Certain adult or typically sensitive content is not permitted. This rule is in place to protect players and streamers that do not wish to be exposed to, or broadcast, certain content. Examples of breaking this rule could be, but are not limited to:</p>
+                            
+                            <ul>
+<li>Erotic roleplay that involves explicit sexual acts.</li>
+                                <li>Even when all present roleplayers are happy to partake, Do not ERP on the server. Any level of sexual assault, even with consent from all involved, is absolutely not permitted, and counts as harassment. Leads to Permanent Ban.</li>
+                                <li>Scenes involving torture/sensitive issues can only occur with prior consent from all parties involved.</li>
+                                <li>Gore or sensitive issues such as traumatic medical complications are not entertainment for everyone, and all players have the right to refuse to roleplay sensitive scenes and maintain privacy in their reasoning. If a player communicates upset with a graphic scene, respect this and allow them to excuse themself through in-character methods, or skip the details if that's not possible.</li>
+                                <li>Remember that consent is continuous and can be withdrawn at any time.</li>
+                            </ul>
+<h3>11 - No Camping</h3>
+                            <p>Camping is the act of intentionally targeting known spawns, public areas, or criminal locations, grinding locations knowing that people will be unsuspecting or unable to fight back, with the intent to rob, assault, kidnap etc. This rule is in place to prevent players from constantly being farmed while attempting to roleplay everyday activities such as doing jobs or visiting public areas. Examples of breaking this rule could be but are not limited to:</p>
+                            
+                            <ul>
+<li>Camping spawn locations, hospitals, or public job sites for robbery or easy access hostages.</li>
+                                <li>Preventing players from freely using publicly accessible locations (e.g. garages, gas stations, welfare offices, etc), or businesses that you are not employed by.</li>
+                                <li>Camping restricted/protected areas (specified in Rule 8) to avoid the continuation of roleplay.</li>
+                                <li>Camping player housing to enter as they exit before they are able to lock the door (this is a server side issue &amp; is counted as power gaming).</li>
+                            </ul>
+</div>
+                    </div>
+
+                    <div class="rule-section collapsible" id="zones-locations">
+                        <h2>8 - RP Zones</h2>
+                        <div class="rule-content">
+                            <p>Certain areas of the map are typically highly secure and constantly monitored, though may not always have players there to guard or respond. This rule is in place in order to prevent characters getting away with crimes in places where it realistically should not be possible in small groups. Examples of breaking this rule could be, but are not limited to:</p>
+                            
+                            <ul>
+<li>Stealing Emergency NPC vehicles from their areas.</li>
+                                <li>Players cannot steal vehicles that are, or from the inventory of, NPC Emergency Service vehicles, aircrafts, or vehicles that are parked on the premises of Hospitals, Fire Stations or Police Stations.</li>
+                                <li>Under certain circumstances, committing crimes within public buildings or transport that would be monitored at all times is prohibited.</li>
+                                <li>Committing small scale crimes in the above mentioned areas, such as griefing unattended vehicles, without sufficient roleplay purpose and interaction with the affected party, is prohibited.</li>
+                                <li>Committing large scale crimes on the premises of City Hall, Courthouses, Hospitals, Fire Stations, Police Stations, Airports or Military Hangars, or attempting to free a player from MRPD requires the following circumstances:
+                                    <ul>
+<li>Performing a large-scale heist on any of the above mentioned areas will need approval from the staff team via a Support Ticket.</li>
+                                        <li>Evidence of a plan formed through RP that does not heavily rely on vehicle/gun violence.</li>
+                                        <li>Reasonable motives for each character to take part.</li>
+                                        <li>At least 4 LSPD officers to be online for a jail break out/in.</li>
+                                    </ul>
+</li>
+                                <li>Hunting, drug farms, illegal buying and selling areas, Gang Areas are all RED ZONES.</li>
+                                <li>Players can kill each others if there are any conflicts between each other but to rob a player you need to proper story, you can't just rob a player just for killing your friend or team-mate.</li>
+                            </ul>
+</div>
+                    </div>
+
+                    <div class="rule-section collapsible" id="criminal-activities">
+                        <h2>Criminal Activities</h2>
+                        <div class="rule-content">
+                            <h3>15 - Turf and Robbery Rules</h3>
+                            <p>The below limitations on certain criminal activities have been discussed and chosen as to not remove the essence of creativity that we all strive for in RP.</p>
+                            
+                            <h3>Turf Warfare (General Interactions):</h3>
+                            <ul>
+<li>Players should always prioritize roleplay over gunplay and never intentionally seek to initiate gunplay.</li>
+                                <li>It is considered NVL &amp; Gunplay over Roleplay to initiate a gun fight with a group that greatly outnumbers you.</li>
+                                <li>It is considered Gunplay over Roleplay to initiate a gun fight with a group that you outnumber without first exhausting all other roleplay opportunities.</li>
+                                <li>Example: Two members of group A head over to group B's turf. When they arrive, they notice that there are 6+ people from group B sitting around. Group A should be realizing that they are in fact out numbered &amp; should value their life enough to not resort directly to gunplay. Group B should also realize that they are in control of the situation, due to having more numbers, and should also not resort directly to gunplay.</li>
+                                <li>If you venture into a turf as 5 people, if you provoke the opponent in lethal force, that group is able to retaliate with what numbers are there. You should be valuing your life enough to know when is the right time to escalate a situation and maintain 5 man rule in any type of situation.</li>
+                            </ul>
+<h3>Cop v. Criminal Interactions (General and Bank Robberies):</h3>
+                            <ul>
+<li>Players should always strive to be imaginative and entertaining with their negotiations, escape plans, and ensure that everyone involved (including LEOs and hostages) has a positive, quality roleplay experience. This also extends to every interaction, whether it be a traffic stop, or at City Hall. We expect every participant to provide the same Roleplay that they themselves expect in return.</li>
+                                <li>It is understandable for there to be discourse between gangs v. cops - but also, at a certain point everyone needs to remember that we're all here for RP and that sometimes, an L or a 5 minute traffic stop or taking a report from a civ, has provided that party with an enjoyable RP scenario.</li>
+                                <li>Limitations have been put in place to both prevent LEOs &amp; Criminals from being consistently outnumbered/overwhelmed while still allowing room for creativity with your scenarios.</li>
+                            </ul>
+<h3>The maximum number of directly involved players permitted to perform a robbery/heist:</h3>
+                            <ul>
+<li>Vangelico Jewellery Store: min and max = 3</li>
+                                <li>Fleeca Banks: min = 3 and max = 5</li>
+                                <li>Paleto Bank: min = 4 and max = 6</li>
+                                <li>Pacific Standard Bank: min = 4 and max = 8</li>
+                                <li>The number of LEOs responding to each scenario cannot exceed the above limitations +3.</li>
+                                <li>Directly involved players are those who are involved with the execution of the robbery and its escape, including retrieving and managing hostages, hacking, smash/grabbing, negotiations, and get away driving.</li>
+                                <li>Indirectly involved players are not allowed to join/substitute as directly involved players at any point during the scenario. They cannot interfere with involved LEOs.</li>
+                            </ul>
+<h3>17 - Important Rules</h3>
+                            <ul>
+<li>To kidnap a civilian there must be 3 people pointing gun towards him / her.</li>
+                                <li>You should not take Respawn when you are getting treated or when you are in a situation or when you called a doctor and the doctor is on way.</li>
+                                <li>NO EXPLICIT/ADULT ROLEPLAY allowed in this server for more info check rule number 10 from the General RP Rules.</li>
+                            </ul>
+</div>
+                    </div>
+
+                    <div class="rule-section collapsible" id="technical-rules">
+                        <h2>16 - Hacking &amp; Exploiting</h2>
+                        <div class="rule-content">
+                            <p>No third-party applications are allowed unless specified by an admin. This includes crosshairs, mod menus, and anything else that the general population would not have access to or be using.</p>
+                            
+                            <p>Using any bugs or exploits for your advantage or doing anything that will break immersion/RP is strictly prohibited. This includes but not limited to:</p>
+                            
+                            <ul>
+<li>Duplicated items.</li>
+                                <li>Animation canceling.</li>
+                                <li>Clipping through debris/walls/doors.</li>
+                                <li>Modifying text in /me and /OOC.</li>
+                                <li>Spamming crouch or movement to avoid fall damage and being tased.</li>
+                                <li>Any bug related to a FiveM mod must be reported as soon as found. Failure to do so could lead to a server ban.</li>
+                                <li>If you hear about a bug or exploit from another player, it's your responsibility to report both the bug and the player.</li>
+                                <li>Any breaking of these rules can lead to severe punishment. Based on the severity, these punishments can extend to a permanent unappealable ban. Knowingly using any third party software, exploit or bug to your advantage will result in a ban on a one (1) strike rule.</li>
+                            </ul>
+</div>
+                    </div>
+
+                    <div class="rule-section collapsible" id="additional-rules">
+                        <h2>19 - Miscellaneous Rules</h2>
+                        <div class="rule-content">
+                            <ul>
+<li>RP is just a game, players are playing it for relaxation; do not take it too seriously like real life.</li>
+                                <li>No cop baiting/Triggering - show them some fear.</li>
+                                <li>One cop is equal to 2 civilians.</li>
+                                <li>If cops see you selling drugs, they have the right to search you on the spot.</li>
+                                <li>Show some fear in RP.</li>
+                                <li>Don't use Discord.</li>
+                                <li>Follow these cooldown rules in RP:
+                                    <ul>
+<li>If you see Inactive - you can perform robberies.</li>
+                                        <li>If you see InProgress - Already a robbery is going on.</li>
+                                        <li>If you see CoolDown - You can't perform robberies.</li>
+                                        <li>If you see Meeting - PD are in meeting.</li>
+                                        <li>If you see OnHold - Current running situation is on HOLD.</li>
+                                    </ul>
+</li>
+                                <li>No 18+ content or curse words are allowed when speaking to each other. If violated, you will receive a one-day ban as per strict orders from the owners.</li>
+                                <li>No kidnapping or killing of EMS. If you do so, you will receive a one-day ban.</li>
+                                <li>Don't take in-RP actions into OOC. If a player does something bad in RP, it's directed at your character, not you in real life.</li>
+                                <li>You should not fire weapons, rob players, or steal vehicles in Green Zones. If you do so, you will receive a one-day ban.</li>
+                                <li>During a police chase in a robbery situation, you may switch vehicles as the whole team (e.g., from one car to another), but this is not allowed if three individuals are involved in the robbery and you attempt to switch between three different cars during the chase.</li>
+                                <li>PD should not enter in gang fights.</li>
+                                <li>The police are allowed to have 4 officers involved in a Vangelico robbery, but if the situation escalates to a code red, 6 officers can be involved.</li>
+                                <li>Forming a group of people wearing the same outfits and engaging in gang fights without having your gang whitelisted is not allowed.</li>
+                                <li>SASP members are not allowed to participate in gangs or freelance for official gangs, including engaging in fights.</li>
+                                <li>If admins discover any player mixing their characters by violating the character separation rule, the player will be removed from the SASP and their gang affiliation will be terminated.</li>
+                                <li>Killing Players with hunting rifle is considered has Powergaming (hunting rifle is only used for hunting animals).</li>
+                                <li>Friendly hostage situations are not allowed. Admins will spectate, and if they see the same hostage repeatedly participating without a valid reason, action will be taken.</li>
+                                <li>Attempting to attack or kidnap the mayor is allowed only if at least 10 officers are on duty and there is a valid in-character reason.</li>
+                            </ul>
+<div class="warning-box">
+                                <p><strong>Warning:</strong> Breaking any of the above rules could result in a warning, a temporary, or a permanent ban. These rules may be subject to change. Alterations will be announced through the MayaaLokam RP Discord.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- Section Divider --><div class="section-divider">
+        <div class="divider-content">
+            <div class="center-dot"></div>
+        </div>
+        <div class="divider-lines"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer><div class="container">
+            <div class="footer-top">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="https://public.youware.com/users-website-assets/prod/5a2dce70-d0aa-4d77-bd97-1e6ed4517dee/Picsart-25-05-29-23-13-39-384.png" alt="MayaaLokam Logo" loading="lazy">
+</div>
+                    <p>Join the most immersive GTA V RP experience. Your story. Your city. Your rules.</p>
+                    
+                    <div class="footer-social">
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-discord"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+<li><a href="index.html">Home</a></li>
+                        <li><a href="rules.html">Rules</a></li>
+
+                    </ul>
+</div>
+                
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+<li><a href="whitelist.html">Apply Now</a></li>
+                        <li><a href="rules.html">Server Rules</a></li>
+                        <li><a href="#">Discord</a></li>
+                    </ul>
+</div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 MayaaLokam. All rights reserved.</p>
+                <p class="dev-signature"><p class="dev-signature"><span class="dev-icon">⚙️</span><span>Crafted with ❤️ by </span><a href="https://github.com/santhoshreddy" target="_blank">this guy</a></p></p>
+            </div>
+        </div>
+    </footer><!-- JavaScript --><script src="js/script.js" defer></script><script src="js/transitions.js" defer></script><script>
+        // Smooth scrolling for sidebar navigation
+        document.querySelectorAll('.rules-sidebar a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Collapsible sections
+        document.addEventListener('DOMContentLoaded', function() {
+            const ruleSections = document.querySelectorAll('.collapsible');
+            
+            // Function to collapse all sections
+            function collapseAllSections() {
+                ruleSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+            }
+            
+            // Add click event to all section headers
+            ruleSections.forEach(section => {
+                const header = section.querySelector('h2');
+                
+                header.addEventListener('click', function() {
+                    // If section is already active, just collapse it
+                    if (section.classList.contains('active')) {
+                        section.classList.remove('active');
+                    } else {
+                        // Collapse all sections first
+                        collapseAllSections();
+                        // Then expand the clicked one
+                        section.classList.add('active');
+                    }
+                    
+                    // Scroll section into view if needed
+                    section.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            });
+            
+            // Handle navigation clicks to expand the target section
+            document.querySelectorAll('.rules-sidebar a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        // If it's a collapsible section
+                        if (targetSection.classList.contains('collapsible')) {
+                            // Collapse all sections first
+                            collapseAllSections();
+                            // Expand the target section
+                            targetSection.classList.add('active');
+                        }
+                        
+                        // Scroll to the target section
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

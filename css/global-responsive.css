@@ -1,0 +1,149 @@
+/* Global responsive styles to be applied to all pages */
+
+/* Base responsive styles */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
+}
+
+img, video, svg, canvas, picture {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevent horizontal overflow */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  overflow-x: clip;
+}
+
+/* Better form styling for mobile devices */
+input, button, textarea, select {
+  font: inherit;
+  font-size: 100%;
+}
+
+button, [role="button"], input[type="submit"] {
+  cursor: pointer;
+}
+
+/* Accessibility enhancements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+  :root {
+    --primary-color: #FFD700;
+    --secondary-color: #B8860B;
+    --accent-color: #FFEA00;
+    --text-light: #ffffff;
+    --text-muted: #f0f0f0;
+  }
+}
+
+/* Improved focus styles for keyboard navigation */
+:focus {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 3px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 3px;
+}
+
+/* Skip to content link for screen readers */
+.skip-link {
+  position: absolute;
+  top: -999px;
+  left: 0;
+  background: var(--primary-color);
+  color: var(--dark-bg);
+  padding: 1rem;
+  z-index: 9999;
+  transition: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Responsive spacing utilities */
+.mt-0-mobile { margin-top: 0 !important; }
+.mb-0-mobile { margin-bottom: 0 !important; }
+.pt-0-mobile { padding-top: 0 !important; }
+.pb-0-mobile { padding-bottom: 0 !important; }
+
+@media (max-width: 767px) {
+  .mt-1-mobile { margin-top: 1rem !important; }
+  .mb-1-mobile { margin-bottom: 1rem !important; }
+  .pt-1-mobile { padding-top: 1rem !important; }
+  .pb-1-mobile { padding-bottom: 1rem !important; }
+  
+  .mt-2-mobile { margin-top: 2rem !important; }
+  .mb-2-mobile { margin-bottom: 2rem !important; }
+  .pt-2-mobile { padding-top: 2rem !important; }
+  .pb-2-mobile { padding-bottom: 2rem !important; }
+  
+  /* Stack elements vertically */
+  .stack-mobile {
+    display: flex;
+    flex-direction: column !important;
+  }
+  
+  /* Center text on mobile */
+  .center-mobile {
+    text-align: center !important;
+  }
+  
+  /* Hide elements on mobile */
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+/* Tablet responsive utilities */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .mt-1-tablet { margin-top: 1rem !important; }
+  .mb-1-tablet { margin-bottom: 1rem !important; }
+  .pt-1-tablet { padding-top: 1rem !important; }
+  .pb-1-tablet { padding-bottom: 1rem !important; }
+  
+  .mt-2-tablet { margin-top: 2rem !important; }
+  .mb-2-tablet { margin-bottom: 2rem !important; }
+  .pt-2-tablet { padding-top: 2rem !important; }
+  .pb-2-tablet { padding-bottom: 2rem !important; }
+  
+  /* Hide elements on tablet */
+  .hide-tablet {
+    display: none !important;
+  }
+}
+
+/* Desktop-only utilities */
+@media (min-width: 1024px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}

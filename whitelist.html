@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Whitelist Application - MayaaLokam Roleplay</title>
+<meta name="description" content="Apply to join India's most immersive GTA V RP experience. Fill out our whitelist application and begin your roleplay journey.">
+<!-- Fonts & Icons -->
+<link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&amp;family=Roboto:wght@300;400;500;700&amp;display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Custom Styles -->
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/transitions.css">
+<link rel="stylesheet" href="css/includes/_mixins.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/global-responsive.css">
+<link rel="stylesheet" href="css/footer-fix.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/hamburger.css">
+<!-- GitHub Pages Form Handler -->
+<script src="assets/js/form-handler.js" defer></script>
+<style>
+        /* Whitelist Form Styles */
+        .whitelist-section {
+            padding: 150px 0 80px;
+            position: relative;
+            background: linear-gradient(to right, rgb(55, 65, 81), rgb(17, 24, 39), rgb(0, 0, 0));
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            opacity: 1;
+            transform: none;
+        }
+        
+        .whitelist-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .whitelist-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .whitelist-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .whitelist-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Form Styles */
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(54, 158, 255, 0.3);
+            width: 100%;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .form p {
+            color: #fff;
+            font-weight: bold;
+            font-size: 20px;
+            text-align: left;
+            margin: 0 0 10px 0;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .path {
+            fill: #369eff;
+        }
+
+        .svg {
+            filter: blur(20px);
+            z-index: 1;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 120px;
+            height: 120px;
+            opacity: 0.2;
+            animation: anim 3s infinite;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 5px;
+        }
+
+        .form-group label {
+            color: #fff;
+            font-weight: 500;
+            font-size: 13px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            color: #fff;
+            padding: 12px 15px;
+            background: rgba(0, 0, 0, 0.3);
+            outline: none;
+            border: 1px solid #369eff;
+            border-radius: 10px;
+            transition: all 0.6s ease;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border: 1px solid #fff;
+            box-shadow: 0 0 10px rgba(54, 158, 255, 0.5);
+        }
+        
+        .custom-select {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .custom-select select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 100%;
+            padding-right: 30px;
+        }
+        
+        .custom-select::after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            color: #369eff;
+            pointer-events: none;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .form-btn {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 10px;
+        }
+        
+        .btn-submit {
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #369eff, #4a6eff);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-submit:hover {
+            background: linear-gradient(45deg, #4a6eff, #369eff);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-submit:active {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .required {
+            color: #ff3838;
+            margin-left: 3px;
+        }
+        
+        .form-note {
+            color: #bbb;
+            font-size: 12px;
+            margin-top: 4px;
+            font-style: italic;
+        }
+        
+        .form-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(54, 158, 255, 0.5), transparent);
+            margin: 15px 0;
+        }
+
+        /* GitHub Pages notice */
+        .github-pages-notice {
+            background-color: rgba(54, 158, 255, 0.1);
+            border: 1px solid rgba(54, 158, 255, 0.3);
+            border-radius: 8px;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #fff;
+        }
+        
+        .github-pages-notice p {
+            font-size: 14px;
+            font-weight: normal;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+        }
+        
+        @keyframes anim {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(10px, 10px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .whitelist-section {
+                padding: 120px 20px 60px;
+            }
+            
+            .form {
+                padding: 20px;
+            }
+            
+            .whitelist-header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body class="page-transition">
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://public.youware.com/users-website-assets/prod/5a2dce70-d0aa-4d77-bd97-1e6ed4517dee/Picsart-25-05-29-23-13-39-384.png" alt="MayaaLokam Logo">
+                    </a>
+                </div>
+                
+                <nav class="nav-menu" id="navMenu">
+                    <a href="index.html">Home</a>
+                    <a href="whitelist.html">Whitelist</a>
+                    <a href="rules.html">Rules</a>
+                    <a href="duty-tracker.html">Duty Tracker</a>
+                    
+                    <!-- Mobile only buttons -->
+                    <div class="mobile-nav-buttons">
+                        <a href="whitelist.html" class="apply-btn">Apply Now</a>
+                        <a href="membership.html">
+                            <button type="button" class="button mobile-space-btn">
+  <span class="fold"></span>
+  <div class="points_wrapper">
+    <i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i>
+  </div>
+  <span class="inner">
+    <svg class="icon" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" style="width: 1em; height: 1em;"><polyline points="13.18 1.37 13.18 9.64 21.45 9.64 10.82 22.63 10.82 14.36 2.55 14.36 13.18 1.37"></polyline></svg>
+    PRIME
+  </span>
+</button>
+                        </a>
+                    </div>
+                </nav>
+                
+                <div class="nav-buttons">
+                    <a href="whitelist.html" class="apply-btn">Apply Now</a>
+                    <a href="membership.html">
+                        <button type="button" class="button">
+  <span class="fold"></span>
+  <div class="points_wrapper">
+    <i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i>
+  </div>
+  <span class="inner">
+    <svg class="icon" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" style="width: 1em; height: 1em;"><polyline points="13.18 1.37 13.18 9.64 21.45 9.64 10.82 22.63 10.82 14.36 2.55 14.36 13.18 1.37"></polyline></svg>
+    PRIME
+  </span>
+</button>
+                    </a>
+                </div>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span class="hamburger-icon"></span>
+                    <i class="fa-solid fa-bars"></i>
+                    <i class="fa-solid fa-times"></i>
+                </button>
+                <div class="nav-overlay" id="navOverlay"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Whitelist Section -->
+    <section class="whitelist-section">
+        <div class="container">
+            <div class="whitelist-container">
+                <div class="whitelist-header">
+                    <h1>Whitelist Application</h1>
+                    <p>To join MayaaLokam Roleplay, please complete the application form below. We'll review your application and get back to you shortly.</p>
+                </div>
+                
+                <form class="form" data-static-form>
+                    <div class="github-pages-notice">
+                        <p><i class="fas fa-info-circle"></i> This is a demo version hosted on GitHub Pages. Form submissions will be stored locally for demonstration purposes only.</p>
+                    </div>
+                    
+                    <div class="content">
+                        <p>PERSONAL INFORMATION</p>
+                        
+                        <div class="form-group">
+                            <label for="discord">Discord Username <span class="required">*</span></label>
+                            <input type="text" id="discord" name="discord" placeholder="e.g. username#1234" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="age">Age <span class="required">*</span></label>
+                            <input type="number" id="age" name="age" min="18" max="100" placeholder="Must be 18+" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timezone">Timezone <span class="required">*</span></label>
+                            <div class="custom-select">
+                                <select id="timezone" name="timezone" required>
+                                    <option value="" disabled selected>Select your timezone</option>
+                                    <option value="IST">Indian Standard Time (IST)</option>
+                                    <option value="GMT+5:30">GMT +5:30</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="playHours">How many hours can you play per week? <span class="required">*</span></label>
+                            <input type="text" id="playHours" name="playHours" placeholder="e.g. 15-20 hours" required>
+                        </div>
+                        
+                        <div class="form-divider"></div>
+                        
+                        <p>ROLEPLAY EXPERIENCE</p>
+                        
+                        <div class="form-group">
+                            <label for="rpExperience">Do you have previous RP experience? <span class="required">*</span></label>
+                            <div class="custom-select">
+                                <select id="rpExperience" name="rpExperience" required>
+                                    <option value="" disabled selected>Select an option</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="previousServers">If yes, which servers have you played on?</label>
+                            <input type="text" id="previousServers" name="previousServers" placeholder="e.g. Legacy RP, NoPixel, etc.">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="rpDefinition">What is roleplay to you? <span class="required">*</span></label>
+                            <textarea id="rpDefinition" name="rpDefinition" placeholder="Explain your understanding of roleplay..." required></textarea>
+                        </div>
+                        
+                        <div class="form-divider"></div>
+                        
+                        <p>CHARACTER CONCEPT</p>
+                        
+                        <div class="form-group">
+                            <label for="characterName">Character Name <span class="required">*</span></label>
+                            <input type="text" id="characterName" name="characterName" placeholder="First and Last Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="characterBackground">Character Background <span class="required">*</span></label>
+                            <textarea id="characterBackground" name="characterBackground" placeholder="Tell us about your character's background story..." required></textarea>
+                            <span class="form-note">Minimum 200 characters</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="characterGoals">Character Goals <span class="required">*</span></label>
+                            <textarea id="characterGoals" name="characterGoals" placeholder="What are your character's goals in the city?" required></textarea>
+                        </div>
+                        
+                        <div class="form-divider"></div>
+                        
+                        <p>SCENARIOS</p>
+                        
+                        <div class="form-group">
+                            <label for="scenario1">How would you handle being robbed at gunpoint? <span class="required">*</span></label>
+                            <textarea id="scenario1" name="scenario1" placeholder="Describe your reaction and actions..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="scenario2">Describe how you would handle a car accident with another player. <span class="required">*</span></label>
+                            <textarea id="scenario2" name="scenario2" placeholder="Explain your approach to this situation..." required></textarea>
+                        </div>
+                        
+                        <div class="form-btn">
+                            <button type="submit" class="btn-submit">
+                                <i class="fas fa-paper-plane"></i>
+                                Submit Application
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path class="path" d="M20 7L15 2L13 4L18 9L20 7ZM4 15L2 20L7 18L4 15ZM15.8995 14.9291C15.7076 14.7369 15.3921 14.737 15.2003 14.9291L14.1428 15.9875C13.4725 16.6584 12.3979 16.6592 11.727 15.9891C11.0561 15.3189 11.0553 14.2443 11.7254 13.5734L12.7836 12.516C12.9758 12.3242 12.9758 12.0085 12.7837 11.8166L12.0704 11.1036C11.8783 10.9117 11.5625 10.912 11.3707 11.1041L10.3117 12.1624C8.93605 13.5369 8.93506 15.8043 10.3095 17.18C11.6851 18.5567 13.9525 18.5577 15.3283 17.1833L16.3874 16.1251C16.5795 15.9329 16.5793 15.6171 16.3871 15.4251L15.8995 14.9291ZM13.2135 9.31347L12.1544 10.3726C11.9623 10.5648 11.6465 10.5645 11.4544 10.3724L10.7412 9.65948C10.5491 9.46731 10.5491 9.15162 10.7413 8.95946L11.8004 7.90042C13.1762 6.52605 15.4438 6.52702 16.8195 7.90369C18.194 9.27939 18.195 11.5468 16.8193 12.9213L15.7603 13.9804C15.5682 14.1726 15.2523 14.1723 15.0602 13.9802L14.347 13.267C14.1549 13.0748 14.1551 12.7591 14.3473 12.567L15.4047 11.5087C15.7746 11.1382 15.9897 10.641 15.9897 10.1125C15.9897 9.58409 15.7746 9.08699 15.4047 8.7166C14.6452 7.95645 13.7119 7.93738 13.2135 9.31347Z"></path>
+                    </svg>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="https://public.youware.com/users-website-assets/prod/5a2dce70-d0aa-4d77-bd97-1e6ed4517dee/Picsart-25-05-29-23-13-39-384.png" alt="MayaaLokam Logo" loading="lazy">
+                    </div>
+                    <p>Join the most immersive GTA V RP experience. Your story. Your city. Your rules.</p>
+                    
+                    <div class="footer-social">
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-discord"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="rules.html">Rules</a></li>
+                        <li><a href="whitelist.html">Whitelist</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="whitelist.html">Apply Now</a></li>
+                        <li><a href="rules.html">Server Rules</a></li>
+                        <li><a href="#">Discord</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 MayaaLokam. All rights reserved.</p>
+                <p class="dev-signature"><span class="dev-icon">⚙️</span><span>Crafted with ❤️ by </span><a href="https://github.com/santhoshreddy" target="_blank">this guy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js" defer></script>
+    <script src="js/transitions.js" defer></script>
+</body>
+</html>

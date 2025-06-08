@@ -1,0 +1,344 @@
+/* Responsive styles for MayaaLokam website 
+   These styles will only apply to tablet and mobile devices
+   Desktop styles remain unchanged as per requirements
+*/
+
+/* Base responsive styles for all screen sizes */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Tablet styles (768px-1023px) */
+@media (max-width: 1023px) {
+  /* Typography adjustments */
+  h1, h2, h3 {
+    /* Use clamp for fluid typography */
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+  }
+  
+  .heading-large {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+  }
+  
+  .heading-small {
+    font-size: clamp(1.25rem, 3vw, 2rem);
+  }
+  
+  /* Header & Navigation adjustments */
+  .nav-menu {
+    gap: 1rem;
+  }
+  
+  /* Layout adjustments */
+  .partnership-content {
+    gap: 20px;
+  }
+  
+  /* Feature cards */
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  /* Buttons */
+  .hero-buttons, .cta-buttons {
+    justify-content: center;
+  }
+  
+  /* Footer adjustments */
+  .footer-top {
+    gap: 20px;
+  }
+  
+  /* Adjust hero content to ensure it fits properly */
+  .hero-content {
+    max-width: 700px;
+  }
+  
+  /* Adjust partnership section for better tablet layout */
+  .partnership-content {
+    align-items: flex-start;
+  }
+  
+  .partnership-image img {
+    max-width: 100%;
+  }
+  
+  /* Developer signature fix */
+  .footer-bottom {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+  }
+}
+
+/* Mobile styles (320px-767px) */
+@media (max-width: 767px) {
+  /* General spacing */
+  .container {
+    padding: 0 1rem;
+  }
+  
+  section {
+    padding: 60px 0;
+  }
+  
+  /* Typography */
+  p {
+    font-size: 0.95rem;
+  }
+  
+  /* Header & Navigation */
+  .header-inner {
+    padding: 0.8rem 1rem;
+    min-height: 60px;
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+  
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1002;
+  }
+  
+  .menu-toggle .fa-times {
+    display: none;
+  }
+  
+  .menu-toggle.active .fa-bars {
+    display: none;
+  }
+  
+  .menu-toggle.active .fa-times {
+    display: inline-block;
+  }
+  
+  .nav-buttons {
+    display: none;
+  }
+  
+  .mobile-nav-buttons {
+    display: flex;
+  }
+
+  /* Hero section */
+  .hero-content {
+    padding: 0;
+    text-align: center;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+    gap: 0.8rem;
+  }
+  
+  .hero-buttons a {
+    width: 100%;
+  }
+  
+  .hero-buttons .cta-btn,
+  .hero-buttons .discord-link-jp {
+    width: 48%;
+  }
+  
+  .hero-buttons .discord-button-jp {
+    width: 100%;
+  }
+  
+  /* Features section */
+  .features-header h2 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Partnership section */
+  .partnership-content {
+    flex-direction: column;
+  }
+  
+  .partnership-text, 
+  .partnership-image {
+    width: 100%;
+  }
+  
+  /* CTA section */
+  .cta-content h2 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .cta-buttons a {
+    width: 100%;
+  }
+  
+  /* Footer */
+  .footer-top {
+    flex-direction: column;
+  }
+  
+  .footer-info,
+  .footer-links {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Mobile navigation */
+  .nav-menu {
+    /* Styles from style.css are already handling the mobile menu */
+    width: 80%;
+    max-width: 280px;
+    right: -100%;
+    padding: 1.5rem;
+    border-radius: 10px;
+    top: 80px;
+    transform: none;
+    left: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .nav-menu.active {
+    right: 10px;
+  }
+  
+  /* Menu animation */
+  .nav-menu a {
+    transform: translateX(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    transition-delay: calc(0.05s * var(--i, 0));
+  }
+  
+  .nav-menu.active a {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
+  /* Developer signature fix */
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+  }
+}
+
+/* Small mobile devices (320px-480px) */
+@media (max-width: 480px) {
+  /* Further reduce sizes */
+  .heading-large {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+  
+  .heading-small {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+  }
+  
+  /* Adjust button sizes */
+  .cta-btn, .apply-btn, .discord-button-jp {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Stack hero buttons */
+  .hero-buttons {
+    flex-direction: column;
+  }
+  
+  .hero-buttons .cta-btn,
+  .hero-buttons .discord-link-jp {
+    width: 100%;
+  }
+  
+  /* Footer adjustments */
+  .footer-social a {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* Fix for any horizontal overflow issues */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Ensure all interactive elements have appropriate touch targets */
+button, 
+a, 
+input[type="submit"],
+.menu-toggle,
+.nav-menu a {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Hamburger menu toggle styles */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-light);
+  transition: all 0.3s ease;
+  z-index: 1002;
+}
+
+@media (max-width: 767px) {
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Animation for menu toggle */
+.menu-toggle:hover {
+  color: var(--primary-color);
+}
+
+/* Mobile navigation buttons styling */
+.mobile-space-btn {
+  margin-top: 10px;
+}
+
+/* Improve accessibility for focus states */
+a:focus, button:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 3px;
+}
+
+/* Hide elements with class sr-only visually but keep them available to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

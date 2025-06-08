@@ -1,0 +1,488 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Duty Tracker - MayaaLokam Roleplay</title>
+<meta name="description" content="Track your job duties and hours in MayaaLokam Roleplay server. View your logs and manage your in-game career.">
+<!-- Fonts & Icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&amp;family=Roboto:wght@300;400;500;700&amp;display=swap">
+<!-- Custom Styles --><link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/transitions.css">
+<link rel="stylesheet" href="css/includes/_mixins.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/global-responsive.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/hamburger.css">
+<link rel="stylesheet" href="css/footer-fix.css">
+<style>
+        /* Duty Tracker Styles */
+        .duty-section {
+            padding: 150px 0 80px;
+            position: relative;
+            background: linear-gradient(to right, rgb(55, 65, 81), rgb(17, 24, 39), rgb(0, 0, 0));
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .duty-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .duty-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .duty-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .duty-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .login-required {
+            text-align: center;
+            background: rgba(16, 18, 41, 0.7);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(54, 158, 255, 0.3);
+            padding: 40px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .login-required h2 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .login-required p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .discord-btn {
+            background-color: #5865F2;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 24px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .discord-btn:hover {
+            background-color: #4752C4;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4);
+        }
+
+        .discord-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .duty-content {
+            display: none; /* Will be shown after login */
+            background: rgba(16, 18, 41, 0.7);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(54, 158, 255, 0.3);
+            padding: 30px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .user-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+        }
+
+        .user-details h3 {
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .user-details p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 8px 16px;
+            cursor: pointer;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background: rgba(78, 84, 255, 0.2);
+            color: #fff;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .duty-log {
+            margin-bottom: 20px;
+        }
+
+        .log-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background: rgba(78, 84, 255, 0.1);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .log-header h4 {
+            color: #fff;
+            margin: 0;
+        }
+
+        .log-header p {
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .log-details {
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .log-details.open {
+            display: block;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 10px;
+        }
+
+        .stat-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+        }
+
+        .stat-value {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .logout-btn {
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            border: 1px solid rgba(255, 68, 68, 0.5);
+            border-radius: 6px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .logout-btn:hover {
+            background-color: rgba(255, 68, 68, 0.2);
+        }
+
+        /* Placeholder styles for empty states */
+        .placeholder {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        .placeholder svg {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .placeholder h3 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .placeholder p {
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .duty-header h1 {
+                font-size: 24px;
+            }
+            
+            .login-required, .duty-content {
+                padding: 20px;
+            }
+            
+            .user-info {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body class="page-transition">
+    <!-- Loading overlay removed for smoother transitions -->
+    <!-- Header -->
+    <header><div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://public.youware.com/users-website-assets/prod/5a2dce70-d0aa-4d77-bd97-1e6ed4517dee/Picsart-25-05-29-23-13-39-384.png" alt="MayaaLokam Logo"></a>
+                </div>
+                
+                <nav class="nav-menu" id="navMenu"><a href="index.html">Home</a>
+                    <a href="whitelist.html">Whitelist</a>
+                    <a href="rules.html">Rules</a>
+
+                    <a href="duty-tracker.html">Duty Tracker</a>
+                    
+                    <!-- Mobile only buttons -->
+                    <div class="mobile-nav-buttons">
+                        <a href="whitelist.html" class="apply-btn">Apply Now</a>
+                        <a href="membership.html">
+                            <button type="button" class="button mobile-space-btn">
+  <span class="fold"></span>
+  <div class="points_wrapper">
+    <i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i>
+  </div>
+  <span class="inner">
+    <svg class="icon" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" style="width: 1em; height: 1em;"><polyline points="13.18 1.37 13.18 9.64 21.45 9.64 10.82 22.63 10.82 14.36 2.55 14.36 13.18 1.37"></polyline></svg>
+    PRIME
+  </span>
+</button>
+                        </a>
+                    </div>
+                </nav><div class="nav-buttons">
+                    <a href="whitelist.html" class="apply-btn">Apply Now</a>
+                    <a href="membership.html">
+                        <button type="button" class="button">
+  <span class="fold"></span>
+  <div class="points_wrapper">
+    <i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i>
+  </div>
+  <span class="inner">
+    <svg class="icon" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" style="width: 1em; height: 1em;"><polyline points="13.18 1.37 13.18 9.64 21.45 9.64 10.82 22.63 10.82 14.36 2.55 14.36 13.18 1.37"></polyline></svg>
+    PRIME
+  </span>
+</button>
+                    </a>
+                </div>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span class="hamburger-icon"></span>
+                    <i class="fa-solid fa-bars"></i>
+                    <i class="fa-solid fa-times"></i>
+                </button>
+                <div class="nav-overlay" id="navOverlay"></div>
+            </div>
+        </div>
+    </header><!-- Duty Tracker Section --><section class="duty-section"><div class="container">
+            <div class="duty-container">
+                <div class="duty-header">
+                    <h1>Duty Tracker</h1>
+                    <p>Track your on-duty hours and job performance in MayaaLokam Roleplay server.</p>
+                </div>
+                
+                <!-- Login Required Section (shown when not logged in) -->
+                <div class="login-required" id="loginSection">
+                    <h2>Discord Login Required</h2>
+                    <p>Please log in with your Discord account to access your duty logs and track your hours.</p>
+                    <a href="#" class="discord-btn" id="discordLoginBtn">
+                        <svg class="discord-icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 127.14 96.36"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A98.38,98.38,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"></path></svg>
+                        Login with Discord
+                    </a>
+                </div>
+                
+                <!-- Duty Content (shown after login) -->
+                <div class="duty-content" id="dutyContent">
+                    <!-- User Info Section -->
+                    <div class="user-info">
+                        <img src="https://via.placeholder.com/60" alt="User Avatar" class="user-avatar" id="userAvatar"><div class="user-details">
+                            <h3 id="userName">Username</h3>
+                            <p id="userTag">User#0000</p>
+                        </div>
+                        <div style="margin-left: auto;">
+                            <button class="logout-btn" id="logoutBtn">Logout</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Tabs -->
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="recent">Recent Activity</button>
+                        <button class="tab-btn" data-tab="summary">Summary</button>
+                        <button class="tab-btn" data-tab="jobs">Jobs</button>
+                    </div>
+                    
+                    <!-- Recent Activity Tab -->
+                    <div class="tab-content active" id="recentTab">
+                        <div class="placeholder">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg><h3>No Recent Activity</h3>
+                            <p>Your recent duty activity will appear here once you start logging hours via the Discord bot.</p>
+                        </div>
+                        
+                        <!-- Sample Activity (will be populated dynamically) -->
+                        <!-- <div class="duty-log">
+                            <div class="log-header">
+                                <h4>Police Patrol</h4>
+                                <p>June 1, 2025</p>
+                            </div>
+                            <div class="log-details">
+                                <div class="stat-row">
+                                    <span class="stat-label">Clock In</span>
+                                    <span class="stat-value">10:30 AM</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Clock Out</span>
+                                    <span class="stat-value">2:45 PM</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Total Hours</span>
+                                    <span class="stat-value">4h 15m</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Department</span>
+                                    <span class="stat-value">LSPD</span>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                    
+                    <!-- Summary Tab -->
+                    <div class="tab-content" id="summaryTab">
+                        <div class="placeholder">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-4"></path></svg><h3>No Summary Data</h3>
+                            <p>Your duty summary will be generated once you have accumulated duty hours.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Jobs Tab -->
+                    <div class="tab-content" id="jobsTab">
+                        <div class="placeholder">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg><h3>No Jobs Assigned</h3>
+                            <p>Your assigned jobs will appear here once they have been set up by an administrator.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- Section Divider --><div class="section-divider">
+        <div class="divider-content">
+            <div class="center-dot"></div>
+        </div>
+        <div class="divider-lines"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer><div class="container">
+            <div class="footer-top">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="https://public.youware.com/users-website-assets/prod/5a2dce70-d0aa-4d77-bd97-1e6ed4517dee/Picsart-25-05-29-23-13-39-384.png" alt="MayaaLokam Logo" loading="lazy">
+</div>
+                    <p>Join the most immersive GTA V RP experience. Your story. Your city. Your rules.</p>
+                    
+                    <div class="footer-social">
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-discord"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+<li><a href="index.html">Home</a></li>
+                        <li><a href="rules.html">Rules</a></li>
+
+                    </ul>
+</div>
+                
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+<li><a href="whitelist.html">Apply Now</a></li>
+                        <li><a href="rules.html">Server Rules</a></li>
+                        <li><a href="#">Discord</a></li>
+                    </ul>
+</div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 MayaaLokam. All rights reserved.</p>
+                <p class="dev-signature"><p class="dev-signature"><span class="dev-icon">⚙️</span><span>Crafted with ❤️ by </span><a href="https://github.com/santhoshreddy" target="_blank">this guy</a></p></p>
+            </div>
+        </div>
+    </footer><!-- JavaScript --><script src="js/script.js" defer></script><script src="js/duty-tracker.js" defer></script><script src="js/transitions.js" defer></script>
+</body>
+</html>

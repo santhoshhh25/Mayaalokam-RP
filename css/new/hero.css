@@ -1,0 +1,314 @@
+/* Hero Section Styles */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0;
+  background-color: #000;
+}
+
+/* Background Slideshow */
+.hero-slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.slideshow-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.slideshow-item.active {
+  opacity: 0.85; /* Increased from 0.8 to 0.85 to make images more visible */
+}
+
+/* Overlay for better text readability */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%); /* Reduced opacity for better image visibility */
+  z-index: 1;
+}
+
+/* Snow Animation */
+.snowflake-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.snowflake {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: snowfall linear infinite;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(-100px) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  95% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(100vh) translateX(100px);
+    opacity: 0;
+  }
+}
+
+/* Hero Content */
+.hero .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+}
+
+.hero-content {
+  max-width: 800px;
+  text-align: center;
+  animation: fadeIn 1.5s ease-out;
+  /* Removed the background color */
+  padding: 2rem;
+  /* Removed border-radius and box-shadow */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content h1 {
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.heading-small {
+  font-size: 1.5rem;
+  color: var(--text-light);
+  display: block;
+  margin-bottom: 0.8rem;
+  animation: slideInLeft 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Keep text shadow for better visibility */
+}
+
+.heading-large {
+  font-size: 3.5rem;
+  background: linear-gradient(45deg, #FFD700, #FFC400, #FFD700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+  animation: slideInRight 0.8s ease-out forwards;
+  animation-delay: 0.6s;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.8)); /* Keep filter for better visibility */
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.9s;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7); /* Keep text shadow for better visibility */
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Player Count Display */
+.player-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 1.5rem;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 1.2s;
+}
+
+.player-count-item {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: var(--text-light);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.player-count-item i {
+  margin-right: 0.5rem;
+  color: #FFFFFF;
+}
+
+/* Server Status Indicator */
+.server-status {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: var(--text-light);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  animation: pulse 2s infinite;
+}
+
+.status-indicator.online {
+  background-color: #00FF00; /* Bright green for online */
+  box-shadow: 0 0 8px 2px #00FF00;
+}
+
+.status-indicator.offline {
+  background-color: #FF0000; /* Bright red for offline */
+  box-shadow: 0 0 8px 2px #FF0000;
+}
+
+#server-status-text {
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+}
+
+/* Hero Buttons */
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 1.5s;
+}
+
+/* Discord Button - Minimal Style */
+.discord-link-jp {
+  text-decoration: none;
+}
+
+.discord-button-jp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  gap: 8px;
+  background: #5865F2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(88, 101, 242, 0.3);
+}
+
+.discord-button-jp:hover {
+  background: #4752c4;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(88, 101, 242, 0.4);
+}
+
+.discord-button-jp:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(88, 101, 242, 0.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .heading-small {
+    font-size: 1.2rem;
+  }
+  
+  .heading-large {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .player-count {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
